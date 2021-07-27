@@ -1,0 +1,10 @@
+
+Credential issues | can't pull image quay.io/openshift....
+1. cd /root
+   git clone https://github.com/jasonwcc/DO180
+2. Login as kubeadmin account with the password
+   oc login -u kubeadmin -p nIMBQ-ZoYZ5-UyS5D-oGTjF https://api.ocp4.example.com:6443
+3. Update the secret key
+	 oc set data secret/pull-secret --from-file .dockerconfigjson=pull-secret.txt -n openshift-config
+4. Wait for the master node to be updated
+	 oc get mcp -w
